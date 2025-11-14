@@ -1,0 +1,31 @@
+/* 🔹 Mostra o nome e tipo do usuário no canto superior direito */
+.topo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Caixa do nome do usuário (corrigido para .usuario-info) */
+.usuario-info {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-weight: 600;
+  color: #333;
+  background: #ffe3ed;
+  padding: 8px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste dos botões à esquerda */
+.botoes-topo {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
