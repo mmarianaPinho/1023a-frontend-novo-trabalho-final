@@ -5,7 +5,7 @@ import SecaoFiltros from './componentes/SecaoFiltros';
 import ItemCarrinho from './componentes/ItemCarrinho';
 import './App.css';
 
-// Função de debounce
+
 const useDebounce = (value: any, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -140,7 +140,7 @@ export default function Carrinho() {
     aplicarFiltros();
   }, [itens]);
 
-  // ⭐ CORRIGIDO AQUI: usando produto._id
+  
   const atualizarQuantidade = (id: string, novaQtd: number) => {
     if (novaQtd < 1) {
       setErro("Quantidade deve ser pelo menos 1");
@@ -159,7 +159,7 @@ export default function Carrinho() {
       });
   };
 
-  // ⭐ CORRIGIDO: remover usando produto._id
+
   const removerItem = (itemId: string) => {
     api.delete(`/carrinho/${itemId}`)
       .then(() => {

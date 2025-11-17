@@ -25,7 +25,7 @@ function App() {
   const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
   const [usuario, setUsuario] = useState<{ nome: string; tipo: string } | null>(null);
 
-  // 🔹 Atualiza o token e decodifica o usuário
+
   useEffect(() => {
     const atualizarToken = () => {
       const t = localStorage.getItem("token");
@@ -49,7 +49,7 @@ function App() {
     return () => window.removeEventListener("storage", atualizarToken);
   }, []);
 
-  // 🔹 Buscar produtos
+  
   useEffect(() => {
     api
       .get("/produtos")
@@ -57,7 +57,7 @@ function App() {
       .catch(() => alert("Erro ao carregar produtos"));
   }, []);
 
-  // 🔹 Adicionar item ao carrinho
+
   const adicionarItemCarrinho = async (produtoId: string) => {
     if (!token) {
       alert("Você precisa estar logado para adicionar produtos ao carrinho!");
@@ -82,14 +82,14 @@ function App() {
     }
   };
 
-  // 🔹 Logout
+
   function handleLogout() {
     localStorage.removeItem("token");
     setToken(null);
     setUsuario(null);
   }
 
-  // 🔹 Estado e cadastro de novo produto
+ 
   const [novoProduto, setNovoProduto] = useState({
     nome: "",
     preco: "",
@@ -111,11 +111,11 @@ function App() {
       });
       alert("Produto cadastrado com sucesso!");
 
-      // Atualiza lista
+      
       const res = await api.get("/produtos");
       setProdutos(res.data);
 
-      // Limpa o formulário
+      
       setNovoProduto({ nome: "", preco: "", descricao: "", urlfoto: "" });
     } catch (err) {
       alert("Erro ao cadastrar produto.");
